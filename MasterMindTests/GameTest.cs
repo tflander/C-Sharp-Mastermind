@@ -1,5 +1,4 @@
-﻿using System.IO.Compression;
-using MasterMind;
+﻿using MasterMind;
 using NUnit.Framework;
 
 namespace MasterMindTests
@@ -9,19 +8,19 @@ namespace MasterMindTests
         [Test]
         public void Win()
         {
-            Given.gameWithSolution("RGBO").WhenGuess("RGBO").ThenAnswerIs("Won!");
+            Given.GameWithSolution("RGBO").WhenGuess("RGBO").ThenAnswerIs("Won!");
         }
 
         [Test]
         public void AllWrong()
         {
-            Given.gameWithSolution("PPPP").WhenGuess("RGBO").ThenAnswerIs("");
+            Given.GameWithSolution("PPPP").WhenGuess("RGBO").ThenAnswerIs("");
         }
     }
 
-    public class Given
+    public static class Given
     {
-        public static GameUnderTest gameWithSolution(string solution)
+        public static GameUnderTest GameWithSolution(string solution)
         {
             return new(solution);
         }
