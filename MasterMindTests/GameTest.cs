@@ -16,6 +16,19 @@ namespace MasterMindTests
         {
             Given.GameWithSolution("PPPP").WhenGuess("RGBO").ThenAnswerIs("");
         }
+        
+        [Test]
+        public void RightColorAndPosition()
+        {
+            Given.GameWithSolution("RGBO").WhenGuess("PPPO").ThenAnswerIs("B");
+        }
+
+        [Ignore("refactor blacks")]
+        [Test]
+        public void RightColorAndWrongPosition()
+        {
+            Given.GameWithSolution("RGBO").WhenGuess("OPPP").ThenAnswerIs("W");
+        }
     }
 
     public static class Given
