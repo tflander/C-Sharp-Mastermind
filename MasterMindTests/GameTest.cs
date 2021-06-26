@@ -11,7 +11,7 @@ namespace MasterMindTests
         {
             var game = new Game("RGBO");
             Assert.That(game.Guess("RGBO"), Is.EqualTo("Won!"));
-            // Given.gameWithSolution("RGBO").WhenGuess("RGBO").ThenAnswerIs("Won!");
+            // Given.GameWithSolution("RGBO").WhenGuess("RGBO").ThenAnswerIs("Won!");
         }
 
         [Test]
