@@ -9,16 +9,43 @@ namespace MasterMindTests
         [Test]
         public void Win()
         {
-            var game = new Game("RGBO");
-            Assert.That(game.Guess("RGBO"), Is.EqualTo("Won!"));
-            // Given.gameWithSolution("RGBO").WhenGuess("RGBO").ThenAnswerIs("Won!");
+            Given.gameWithSolution("RGBO").WhenGuess("RGBO").ThenAnswerIs("Won!");
         }
 
         [Test]
         public void AllWrong()
         {
-            var game = new Game("PPPP");
-            Assert.That(game.Guess("RGBO"), Is.EqualTo(""));
+            Given.gameWithSolution("PPPP").WhenGuess("RGBO").ThenAnswerIs("");
+        }
+    }
+
+    public class Given
+    {
+        public static GameUnderTest gameWithSolution(string solution)
+        {
+            return new GameUnderTest(solution);
+        }
+    }
+
+    public class GameUnderTest
+    {
+        private string _answerFromGuess;
+        private readonly Game _game;
+
+        public GameUnderTest(string solution)
+        {
+            _game = new Game(solution);
+        }
+
+        public GameUnderTest WhenGuess(string guess)
+        {
+            _answerFromGuess = guess;
+            return this;
+        }
+
+        public void ThenAnswerIs(string expectedAnswer)
+        {
+            Assert.That(_game.Guess(_answerFromGuess), Is.EqualTo(expectedAnswer));
         }
     }
 }
