@@ -1,4 +1,5 @@
-﻿using MasterMind;
+﻿using System.IO.Compression;
+using MasterMind;
 using NUnit.Framework;
 
 namespace MasterMindTests
@@ -10,6 +11,7 @@ namespace MasterMindTests
         {
             var game = new Game("RGBO");
             Assert.That(game.Guess("RGBO"), Is.EqualTo("Won!"));
+            // Given.gameWithSolution("RGBO").WhenGuess("RGBO").ThenAnswerIs("Won!");
         }
 
         [Test]
