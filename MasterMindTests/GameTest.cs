@@ -23,7 +23,7 @@ namespace MasterMindTests
     {
         public static GameUnderTest gameWithSolution(string solution)
         {
-            return new GameUnderTest(solution);
+            return new(solution);
         }
     }
 
@@ -39,13 +39,13 @@ namespace MasterMindTests
 
         public GameUnderTest WhenGuess(string guess)
         {
-            _answerFromGuess = guess;
+            _answerFromGuess = _game.Guess(guess);
             return this;
         }
 
         public void ThenAnswerIs(string expectedAnswer)
         {
-            Assert.That(_game.Guess(_answerFromGuess), Is.EqualTo(expectedAnswer));
+            Assert.That(_answerFromGuess, Is.EqualTo(expectedAnswer));
         }
     }
 }
