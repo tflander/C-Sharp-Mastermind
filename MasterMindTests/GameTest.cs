@@ -23,7 +23,6 @@ namespace MasterMindTests
             Given.GameWithSolution("RGBO").WhenGuess("PPPO").ThenAnswerIs("B");
         }
 
-        [Ignore("refactor blacks")]
         [Test]
         public void RightColorAndWrongPosition()
         {

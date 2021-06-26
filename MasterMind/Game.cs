@@ -17,34 +17,38 @@ namespace MasterMind
         {
             if (guess.Equals(_solution))
                 return "Won!";
-            var markedSolution = MarkRightColorAndPosition(guess);
-            return new String('B', CountMarks(markedSolution));
+            var (markedSolution, markedGuess) = MarkRightColorAndPosition(guess);
+            var blacks = new String('B', CountMarks(markedSolution, 'X'));
+            var whites = new String('W', CountMarks(markedSolution, 'Z'));
+            return blacks + whites;
         }
 
-        private int CountMarks(string markedGuess)
+        private int CountMarks(string markedGuess, char charToMatch)
         {
             var count = 0;
             foreach (var c in markedGuess)
             {
-                if (c == 'X') ++count;
+                if (c == charToMatch) ++count;
             }
 
             return count;
         }
 
-        private string MarkRightColorAndPosition(string guess)
+        private (string, string) MarkRightColorAndPosition(string guess)
         {
-            var marked = new StringBuilder(_solution);
+            var markedSolution = new StringBuilder(_solution);
+            var markedGuess = new StringBuilder(guess);
 
             for (var i = 0; i < _solution.Length; ++i)
             {
                 if (_solution[i] == guess[i])
                 {
-                    marked[i] = 'X';
+                    markedSolution[i] = 'X';
+                    markedGuess[i] = 'X';
                 }
             }
 
-            return marked.ToString();
+            return (markedSolution.ToString(), markedGuess.ToString());
         }
     }
 }
