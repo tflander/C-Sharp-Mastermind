@@ -28,6 +28,19 @@ namespace MasterMindTests
         {
             Given.GameWithSolution("RGBO").WhenGuess("OPPP").ThenAnswerIs("W");
         }
+
+        [Test]
+        public void TwoRightColorAndWrongPosition()
+        {
+            Given.GameWithSolution("RGOO").WhenGuess("OOPP").ThenAnswerIs("WW");
+        }
+        
+        [Test]
+        public void TwoBlackTwoWhite()
+        {
+            Given.GameWithSolution("RGBO").WhenGuess("GRBO").ThenAnswerIs("BBWW");
+        }
+        
     }
 
     public static class Given
