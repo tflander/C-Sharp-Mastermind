@@ -18,15 +18,32 @@ namespace MasterMind
         {
             foreach (var color in solution)
             {
-                if (!"RBGOPY".Contains(color))
+                if (!IsValidColor(color))
                 {
-                    throw new ArgumentException($"Invalid color {color}.  valid colors are (R)ed, (B)lue, (G)reen, (O)range, (P)urple, (Y)ellow");                    
+                    throw new ArgumentException(InvalidColorMessage(color));                    
                 }
             }
         }
 
+        private static string InvalidColorMessage(char color)
+        {
+            return $"Invalid color {color}.  valid colors are (R)ed, (B)lue, (G)reen, (O)range, (P)urple, (Y)ellow";
+        }
+
+        private static bool IsValidColor(char color)
+        {
+            return "RBGOPY".Contains(color);
+        }
+
         public string Guess(string guess)
         {
+            foreach (var color in guess)
+            {
+                if (!IsValidColor(color))
+                {
+                    return InvalidColorMessage(color);
+                }
+            }
             if (guess.Equals(_solution))
                 return "Won!";
             var (markedSolution, markedGuess) = MarkRightColorAndPosition(guess);

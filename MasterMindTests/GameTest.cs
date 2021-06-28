@@ -50,6 +50,11 @@ namespace MasterMindTests
                 delegate { new Game("ABCD"); });
         }
         
+        [Test]
+        public void RejectInvalidColorInGuess()
+        {
+            Given.GameWithSolution("RGBO").WhenGuess("ABCD").ThenAnswerIs("Invalid color A.  valid colors are (R)ed, (B)lue, (G)reen, (O)range, (P)urple, (Y)ellow");
+        }
     }
 
     public static class Given
