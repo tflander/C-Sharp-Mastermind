@@ -1,4 +1,31 @@
-Mastermind Kata
+# Building a testing DSL using the Mastermind Kata
+
+## Directions:
+
+Practice implementing an internal DSL for the MasterMind kata.  Write tests using fluent style implementing a cusom gherkin-style DSL.
+
+### TODO:
+
+1.  Look at the following block in [GameTest.cs](https://github.com/tflander/C-Sharp-Mastermind/blob/main/MasterMindTests/GameTest.cs):
+
+```C#
+[Test]
+public void Win()
+{
+  var game = new Game("RGBO");
+  Assert.That(game.Guess("RGBO"), Is.EqualTo("Won!"));
+  // Given.GameWithSolution("RGBO").WhenGuess("RGBO").ThenAnswerIs("Won!");
+}
+```
+
+2. Uncomment the line `Given.GameWithSolution("RGBO").WhenGuess("RGBO").ThenAnswerIs("Won!");`
+3. Verify Undefined Type error
+4. Define the type and implement the DSL
+5. Very new DSL function runs green
+6. Delete the original test code
+
+
+## The Original Kata Rules:
 
 1. The Mastermind (computer) will select 4 colours. The colours are randomly selected from ["Red", "Blue", "Green", "Orange", "Purple", "Yellow"]. Colours can be duplicated but there will always be exactly 4.
 
