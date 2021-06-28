@@ -1,9 +1,10 @@
-# Building a testing DSL using the Mastermind Kata
+# Building a testing DSL (Domain Specific Language) using the Mastermind Kata
 
 ## Directions:
 
 Practice implementing an internal DSL for the MasterMind kata.  Write tests using fluent style implementing a cusom gherkin-style DSL.
 
+For an in-depth study, refer to Martin Fowler's book [Domain Specific Languages](https://martinfowler.com/books/dsl.html)
 ### TODO:
 
 1.  Look at the following block in [GameTest.cs](https://github.com/tflander/C-Sharp-Mastermind/blob/main/MasterMindTests/GameTest.cs):
