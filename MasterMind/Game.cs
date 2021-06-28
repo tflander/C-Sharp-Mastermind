@@ -10,7 +10,19 @@ namespace MasterMind
 
         public Game(string solution)
         {
+            ValidateSolution(solution);
             _solution = solution;
+        }
+
+        private void ValidateSolution(string solution)
+        {
+            foreach (var color in solution)
+            {
+                if (!"RBGOPY".Contains(color))
+                {
+                    throw new ArgumentException($"Invalid color {color}.  valid colors are (R)ed, (B)lue, (G)reen, (O)range, (P)urple, (Y)ellow");                    
+                }
+            }
         }
 
         public string Guess(string guess)

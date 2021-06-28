@@ -1,4 +1,5 @@
-﻿using MasterMind;
+﻿using System;
+using MasterMind;
 using NUnit.Framework;
 
 namespace MasterMindTests
@@ -39,6 +40,14 @@ namespace MasterMindTests
         public void TwoBlackTwoWhite()
         {
             Given.GameWithSolution("RGBO").WhenGuess("GRBO").ThenAnswerIs("BBWW");
+        }
+
+        [Test]
+        public void FailNewGameWithInvalidColor()
+        {
+            Assert.Throws(Is.TypeOf<ArgumentException>()
+                    .And.Message.EqualTo("Invalid color A.  valid colors are (R)ed, (B)lue, (G)reen, (O)range, (P)urple, (Y)ellow"),
+                delegate { new Game("ABCD"); });
         }
         
     }
