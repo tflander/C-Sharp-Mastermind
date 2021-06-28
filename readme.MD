@@ -25,6 +25,10 @@ public void Win()
 5. Very new DSL function runs green
 6. Delete the original test code
 
+### Hints:
+- Use your IDE to generate code (types and methods)
+- Understand Builder Pattern
+- Realize that complication and unfamiliarity are different.  Writing DSLs may be unfamiliar, but do not have to be complex.
 
 ## The Original Kata Rules:
 
